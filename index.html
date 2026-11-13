@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="How Spatial Scene by Namib processes photos locally on your device, handles motion sensors, saves live wallpapers and videos, and protects your privacy.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Privacy Policy · Spatial Scene</title>
+  <link rel="icon" href="brand-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+  <a class="skip-link" href="#policy">Skip to privacy policy</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Spatial Scene, back to top">
+      <img src="brand-mark.svg" alt="" width="42" height="42">
+      <span>Spatial Scene</span>
+    </a>
+    <a class="contact-link" href="mailto:pat@namibapp.com">Contact Namib <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="eyebrow">OFFLINE 3D DEPTH. YOUR PHOTOS. YOUR DEVICE.</div>
+      <h1>Privacy policy</h1>
+      <p class="intro">Spatial Scene generates 3D depth maps and renders interactive parallax scenes directly on your device, with no servers, accounts, ads, or tracking.</p>
+      <p class="metadata">Effective <time datetime="2026-11-13">13 November 2026</time><span aria-hidden="true"> / </span>Last updated <time datetime="2026-11-13">13 November 2026</time></p>
+      <div class="overview" aria-label="Privacy at a glance">
+        <div>
+          <span class="overview-number">01</span>
+          <h2>100% offline AI</h2>
+          <p>Depth estimation and 3D OpenGL rendering run locally on your device. The app does not request internet access.</p>
+        </div>
+        <div>
+          <span class="overview-number">02</span>
+          <h2>Your photos stay private</h2>
+          <p>Android’s Photo Picker grants access only to the photo you choose. Images are never uploaded to Namib or any third party.</p>
+        </div>
+        <div>
+          <span class="overview-number">03</span>
+          <h2>No ads or trackers</h2>
+          <p>Spatial Scene contains no accounts, advertising SDKs, analytics trackers, or crash-reporting telemetry.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="policy-layout">
+      <nav class="contents" aria-label="Policy contents">
+        <p class="eyebrow">ON THIS PAGE</p>
+        <ol>
+          <li><a href="#about">About this policy</a></li>
+          <li><a href="#photos">Photos &amp; on-device AI</a></li>
+          <li><a href="#sensors">Motion sensors</a></li>
+          <li><a href="#wallpaper-export">Live wallpaper &amp; MP4 export</a></li>
+          <li><a href="#permissions">Permissions &amp; libraries</a></li>
+          <li><a href="#retention">Retention &amp; deletion</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#children">Children’s privacy</a></li>
+          <li><a href="#support">Support messages</a></li>
+          <li><a href="#rights">Your privacy choices</a></li>
+          <li><a href="#website">This website</a></li>
+          <li><a href="#changes">Policy changes</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </nav>
+
+      <article id="policy" aria-label="Full privacy policy">
+        <section id="about">
+          <p class="section-number">01 / ABOUT</p>
+          <h2>Who this policy covers</h2>
+          <p><strong>Namib</strong> develops and publishes <strong>Spatial Scene</strong> for Android (package name <code>com.namib.spatialapp</code>). In this policy, “we” and “us” mean Namib.</p>
+          <p>Spatial Scene turns 2D photographs into interactive 3D parallax scenes, live wallpapers, and short 3D sweep videos using an on-device neural network and OpenGL ES 3.0 shaders.</p>
+          <p>No user account is required. We do not operate servers that receive your photos, depth maps, sensor data, or usage telemetry, and the app contains no advertising or analytics SDKs.</p>
+        </section>
+
+        <section id="photos">
+          <p class="section-number">02 / LOCAL PROCESSING</p>
+          <h2>Photos and on-device AI depth</h2>
+          <p>When you tap <strong>Gallery</strong>, Spatial Scene opens Android’s system Photo Picker. Android provides temporary read access strictly to the single image you choose; the app cannot browse or scan the rest of your photo library.</p>
+          <p>All image processing happens locally on your phone or tablet:</p>
+          <ul>
+            <li>The selected photo is decoded at full resolution (respecting EXIF orientation) in device memory.</li>
+            <li>A resized copy is passed locally to the bundled <strong>Depth Anything V2 Small (FP16)</strong> model via ONNX Runtime Mobile to estimate 16-bit depth and edge inpainting textures.</li>
+            <li>Your original photo file is never modified, and neither the photo nor its depth map is transmitted off your device.</li>
+          </ul>
+          <p>If you select an image supplied by a cloud-backed Android media provider inside the system Photo Picker, Android or that provider handles any download needed to hand the file to your device under that provider’s own privacy policy.</p>
+        </section>
+
+        <section id="sensors">
+          <p class="section-number">03 / DEVICE SENSORS</p>
+          <h2>Motion sensors and gyroscope tilt</h2>
+          <p>To produce real-time 3D tilt parallax as you move your phone, Spatial Scene reads your device’s motion sensors (<code>TYPE_ROTATION_VECTOR</code> or <code>TYPE_GAME_ROTATION_VECTOR</code>) inside the viewer and the Live Wallpaper service.</p>
+          <p>Motion sensor readings are processed strictly in memory for live rendering and smoothing. They are never saved to disk, recorded, or transmitted anywhere.</p>
+        </section>
+
+        <section id="wallpaper-export">
+          <p class="section-number">04 / SAVING &amp; SHARING</p>
+          <h2>Live wallpaper, MP4 export, and sharing</h2>
+          <p>Spatial Scene saves files only when you explicitly choose to set a Live Wallpaper or export a video:</p>
+          <ul>
+            <li><strong>Live Wallpaper:</strong> Tapping <strong>Wallpaper</strong> saves the active scene’s color image, edge-inpainted background texture, packed 16-bit depth texture, and your depth-intensity/focal-plane settings inside the app’s private storage (<code>files/spatial_wallpaper/</code> and private <code>SharedPreferences</code>) so Android’s Live Wallpaper service can render the scene on your Home and Lock screens.</li>
+            <li><strong>Export MP4:</strong> Tapping <strong>Export MP4</strong> renders a 3-second (60 fps, H.264) orbital camera sweep into temporary private cache, saves the finished MP4 to your device Gallery under <code>Movies/SpatialScene</code> via Android <code>MediaStore</code>, and removes the temporary cache copy.</li>
+            <li><strong>Share:</strong> Tapping <strong>Share</strong> after an export opens Android’s system share sheet so you can send the MP4 to an app or destination you select. Once shared, that destination handles the video under its own privacy policy.</li>
+          </ul>
+        </section>
+
+        <section id="permissions">
+          <p class="section-number">05 / PERMISSIONS &amp; LIBRARIES</p>
+          <h2>Permissions and third-party software</h2>
+          <p>Spatial Scene is built to operate completely offline. It does <strong>not</strong> request permissions for <code>INTERNET</code>, <code>CAMERA</code>, <code>ACCESS_FINE_LOCATION</code>, contacts, microphone, or broad storage/photo-library scanning (<code>READ_MEDIA_IMAGES</code>).</p>
+          <p>The app bundles <strong>Microsoft ONNX Runtime Mobile</strong> and the Depth Anything V2 Small (FP16) model weights inside the app package solely to run local depth inference on your device’s CPU or hardware accelerator. To initialize the runtime, the model file is copied once into the app’s private cache directory.</p>
+          <p>The app contains no third-party advertising networks, social SDKs, analytics services, or remote crash reporters.</p>
+        </section>
+
+        <section id="retention">
+          <p class="section-number">06 / RETENTION &amp; DELETION</p>
+          <h2>How long local files stay and how to delete them</h2>
+          <p>We do not hold your photos or scenes on any server. Local files remain under your control on your device:</p>
+          <dl class="retention-list">
+            <div>
+              <dt>Active Live Wallpaper scene and preferences</dt>
+              <dd>Saved in private app storage until you replace the scene with another photo, clear the app’s storage in Android Settings, or uninstall Spatial Scene.</dd>
+            </div>
+            <div>
+              <dt>Cached AI model file</dt>
+              <dd>Stored in private app cache to speed up subsequent launches. Removed when you clear app cache in Android Settings or uninstall the app.</dd>
+            </div>
+            <div>
+              <dt>Exported MP4 videos</dt>
+              <dd>Saved to <code>Movies/SpatialScene</code> in your device’s media library. Exported videos remain in your Gallery after uninstalling the app until you delete them yourself.</dd>
+            </div>
+            <div>
+              <dt>Android system backup</dt>
+              <dd>The app manifest permits standard Android device backup (<code>allowBackup</code>). You can manage or disable cloud device backups in your Android system settings.</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section id="security">
+          <p class="section-number">07 / SECURITY</p>
+          <h2>How local data is protected</h2>
+          <p>Scene textures and preferences used by the Live Wallpaper are stored in Android’s private app sandbox, isolated from other apps on your device. Because Spatial Scene never transmits your photos or depth data over a network, your imagery is not exposed in transit to external servers.</p>
+          <p>Protection of files stored on your phone or exported to your Gallery depends on your device’s screen lock, operating system encryption, and the sharing apps you choose to use.</p>
+        </section>
+
+        <section id="children">
+          <p class="section-number">08 / CHILDREN</p>
+          <h2>Children’s privacy</h2>
+          <p>Spatial Scene does not collect, store, or share personal information from any user, including children under 13 (or the applicable age of digital consent in your region). If you are a parent or guardian and have questions about the app, please contact us at <a href="mailto:pat@namibapp.com">pat@namibapp.com</a>.</p>
+        </section>
+
+        <section id="support">
+          <p class="section-number">09 / SUPPORT</p>
+          <h2>If you contact us</h2>
+          <p>If you email Namib for support or privacy inquiries, we receive your email address and whatever information you choose to include (such as your message, device model, or attachments). We use that information solely to reply and resolve your request, and we do not add you to marketing lists.</p>
+          <p>Please avoid sending sensitive personal photos unless specifically needed for troubleshooting. You may request deletion of prior support emails at any time, subject to applicable legal obligations.</p>
+        </section>
+
+        <section id="rights">
+          <p class="section-number">10 / YOUR CHOICES</p>
+          <h2>Privacy rights and control</h2>
+          <p>Depending on where you live (including under GDPR, UK GDPR, or US state privacy laws), you may have rights to access, correct, delete, or receive a copy of personal data held about you, object to or restrict processing, or lodge a complaint with your local data protection authority.</p>
+          <p>Because Spatial Scene does not collect personal data on servers, you control all local app data directly on your device through Android Settings and your Gallery. For any support correspondence we hold, contact <a href="mailto:pat@namibapp.com">pat@namibapp.com</a>.</p>
+        </section>
+
+        <section id="website">
+          <p class="section-number">11 / THIS WEBSITE</p>
+          <h2>Hosting this policy</h2>
+          <p>This privacy policy page is hosted on <strong>GitHub Pages</strong>. We do not run advertising, analytics scripts, forms, tracking cookies, or third-party fonts on this page.</p>
+          <p>GitHub logs visitors’ IP addresses for security and abuse prevention when serving GitHub Pages sites. See <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">GitHub Pages data collection</a> and the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
+        </section>
+
+        <section id="changes">
+          <p class="section-number">12 / UPDATES</p>
+          <h2>Changes to this policy</h2>
+          <p>We may update this policy if Spatial Scene’s features, libraries, or legal requirements change. Any update will be published at this URL with a revised “Last updated” date.</p>
+        </section>
+
+        <section id="contact">
+          <p class="section-number">13 / CONTACT</p>
+          <h2>Talk to Namib</h2>
+          <p>For privacy questions or support regarding Spatial Scene:</p>
+          <a class="email" href="mailto:pat@namibapp.com">pat@namibapp.com <span aria-hidden="true">↗</span></a>
+          <p class="contact-note">Publisher: Namib<br>App: Spatial Scene (<code>com.namib.spatialapp</code>)</p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><span>© 2026 Namib · Spatial Scene</span><a href="#top">Back to top ↑</a></footer>
+</body>
+</html>
